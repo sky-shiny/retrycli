@@ -18,7 +18,7 @@ REQUIRES = [
     'retrying == 1.3.3'
 ]
 
-with open('README', 'r') as f:
+with open('README.md', 'r') as f:
     README = f.read()
 
 with open('HISTORY', 'r') as f:
