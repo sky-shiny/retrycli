@@ -1,0 +1,18 @@
+Retrycli
+========
+
+“@patrickdebois: there should be a retry shell command #cloudconsistency”
+
+Now there is.
+
+
+Usage
+=====
+
+```
+ping -c 1 -t 1 10.0.0.1
+retry this !!
+```
+
+
+
