@@ -10,8 +10,8 @@ Usage
 =====
 
 ```
-ping -c 1 -t 1 10.0.0.1
-retry this !!
+retry false 
+retry true
 ```
 
 Installation
