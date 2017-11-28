@@ -10,8 +10,8 @@ Usage
 =====
 
 ```
-retry false 
 retry true
+retry false 
 ```
 
 Installation
