@@ -11,6 +11,7 @@ class ShellCmdError(Exception):
     """Ipmi command failure exception."""
     def __init__(self, message, stderr=None, returncode=-1):
         self.returncode = returncode
+        self.stderr = stderr
         Exception.__init__(self, message)
 
 def retry_if_ShellCmdError(exception):
@@ -23,6 +24,7 @@ def shell_command(**kwargs):
     """
     Wrap the shell command args in the retry decorator
     """
+    print('(re)trying: ' + ' '.join(kwargs['shell_argument']))
     try:
         LOG.debug(kwargs['shell_argument'])
         proc = subprocess.Popen(kwargs['shell_argument'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -34,7 +36,7 @@ def shell_command(**kwargs):
                 LOG.error(line)
         proc.wait()
         if proc.returncode > 0:
-            raise ShellCmdError("Error executing: '{0}'.".format(kwargs['shell_argument']), returncode=proc.returncode)
+            raise ShellCmdError("Error executing: '{0}'.".format(kwargs['shell_argument']), stderr=proc.stderr, returncode=proc.returncode)
         else:
             return
     except KeyboardInterrupt:
