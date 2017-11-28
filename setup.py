@@ -26,11 +26,11 @@ with open('HISTORY', 'r') as f:
 
 setup(
     name='retrycli',
-    version='0.0.1',
+    version='0.1.1',
     description='Retrying wrapper for the shell.',
     long_description=README + '\n\n' + HISTORY,
     author='Max Cameron',
-    author_email='maxwell.cameron@bskyb.com',
+    author_email='maxwell.cameron@johngaltsystems.com',
     url='http://github.com/sky-chiny/retrycli',
     packages=PACKAGES,
     package_data={
